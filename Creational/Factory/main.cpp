@@ -1,19 +1,19 @@
 #include <iostream>
 #include <vector>
 
-class Layer {
+class ILayer {
 public:
-  Layer() {
+  ILayer() {
     std::cout << "LAYER CONSTRUCTOR CALLED\n";
   }
-  Layer(const Layer& layer) = default;
-  virtual ~Layer() {};
+  ILayer(const ILayer& layer) = default;
+  virtual ~ILayer() {};
 
 public:
   virtual void forward() = 0;
 };
 
-class Dense : public Layer {
+class Dense : public ILayer {
 public:
   Dense() {
     std::cout << "DENSE CONSTRUCTOR CALLED\n";
@@ -26,7 +26,7 @@ public:
   };
 };
 
-class Convolutional : public Layer {
+class Convolutional : public ILayer {
 public:
   Convolutional() {
     std::cout << "CONVOLUTIONAL CONSTRUCTOR CALLED\n";
@@ -39,7 +39,7 @@ public:
   };
 };
 
-class Reccurent : public Layer {
+class Reccurent : public ILayer {
 public:
   Reccurent() {
     std::cout << "RECCURENT CONSTRUCTOR CALLED\n";
@@ -58,7 +58,7 @@ enum LAYER_TYPE {
   REC
 };
 
-Layer* getLayerImpl(LAYER_TYPE type) {
+ILayer* getLayerImpl(LAYER_TYPE type) {
   switch (type) {
   case DENSE: return new Dense();
   case CONV:  return new Convolutional();
@@ -69,7 +69,7 @@ Layer* getLayerImpl(LAYER_TYPE type) {
 
 class net {
 public:
-  std::vector<Layer*> _layers;
+  std::vector<ILayer*> _layers;
 
 public:
   net() = default;
@@ -103,6 +103,6 @@ int main() {
   model->forward();
 
   delete model;
-  
+
   return 0;
 }
