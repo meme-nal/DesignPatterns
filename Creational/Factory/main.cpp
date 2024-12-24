@@ -102,5 +102,7 @@ int main() {
 
   model->forward();
 
+  delete model;
+  
   return 0;
 }
