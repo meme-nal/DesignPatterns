@@ -58,7 +58,7 @@ enum LAYER_TYPE {
   REC
 };
 
-ILayer* getLayerImpl(LAYER_TYPE type) {
+ILayer* makeLayerFactory(LAYER_TYPE type) {
   switch (type) {
   case DENSE: return new Dense();
   case CONV:  return new Convolutional();
@@ -77,7 +77,7 @@ public:
 
 public:
   void addLayer(LAYER_TYPE type) {
-    _layers.emplace_back(getLayerImpl(type));
+    _layers.emplace_back(makeLayerFactory(type));
   }
 
   void forward() {
