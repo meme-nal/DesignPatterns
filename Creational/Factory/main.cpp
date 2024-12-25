@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <memory>
+
 
 class ILayer {
 public:
@@ -58,18 +60,18 @@ enum LAYER_TYPE {
   REC
 };
 
-ILayer* makeLayerFactory(LAYER_TYPE type) {
+std::shared_ptr<ILayer> makeLayerFactory(LAYER_TYPE type) {
   switch (type) {
-  case DENSE: return new Dense();
-  case CONV:  return new Convolutional();
-  case REC:   return new Reccurent();
+  case DENSE: return std::make_shared<Dense>();
+  case CONV:  return std::make_shared<Convolutional>();
+  case REC:   return std::make_shared<Reccurent>();
   default:    break;
   }
 }
 
 class net {
 public:
-  std::vector<ILayer*> _layers;
+  std::vector<std::shared_ptr<ILayer>> _layers;
 
 public:
   net() = default;
@@ -83,12 +85,6 @@ public:
   void forward() {
     for (const auto& layer : _layers) {
       layer->forward();
-    }
-  }
-
-  ~net() {
-    for (const auto& layer : _layers) {
-      delete layer;
     }
   }
 };
