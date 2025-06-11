@@ -5,6 +5,8 @@
 **Creational** directory contains creational patterns such as:
 - Singleton
 - Factory Method
+- Builder
+- Prototype
 
 
 ## Structural patterns
@@ -17,3 +19,4 @@
 
 **Behavioral** directory contains behavioral patterns such as:
 - Observer
+- Strategy
