@@ -88,17 +88,3 @@ public:
     }
   }
 };
-
-int main() {
-  net* model {new net()};
-
-  model->addLayer(CONV);
-  model->addLayer(CONV);
-  model->addLayer(DENSE);
-
-  model->forward();
-
-  delete model;
-
-  return 0;
-}

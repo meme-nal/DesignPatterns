@@ -16,4 +16,4 @@
 ## Behavioral patterns
 
 **Behavioral** directory contains behavioral patterns such as:
-- example
+- Observer

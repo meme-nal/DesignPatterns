@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+
 
 class Entity {
 private:
@@ -25,14 +25,3 @@ public:
   int size() const { return _data.size(); }
 
 };
-
-int main() {
-  Entity& ent = Entity::getInstance();
-
-  ent.add(7);
-  ent.add(8);
-
-  std::cout << ent.size() << '\n';
-
-  return 0;
-}

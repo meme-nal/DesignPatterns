@@ -1,0 +1,3 @@
+/home/mono/DesignPatterns/Creational/Prototype/build/CMakeFiles/check.dir
+/home/mono/DesignPatterns/Creational/Prototype/build/CMakeFiles/edit_cache.dir
+/home/mono/DesignPatterns/Creational/Prototype/build/CMakeFiles/rebuild_cache.dir

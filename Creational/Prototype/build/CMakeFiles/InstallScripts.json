@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/mono/DesignPatterns/Creational/Prototype/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
